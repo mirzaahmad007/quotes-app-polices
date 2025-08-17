@@ -100,6 +100,7 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      align-items: center;
     }
     header h1 {
       font-size: 3.5rem;
@@ -130,20 +131,32 @@
     .profile-img {
       border: 8px solid transparent;
       border-radius: 50%;
-      background: linear-gradient(135deg, #29B6F6, #ffd700);
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 0 15px rgba(41, 182, 246, 0.5);
+      background: linear-gradient(45deg, #29B6F6, #ffd700, #29B6F6);
+      background-size: 200%;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 0 20px rgba(41, 182, 246, 0.7);
       max-width: 250px;
       margin-bottom: 1rem;
-      transition: transform 0.5s ease, opacity 0.5s ease;
-      animation: pulse 2s infinite ease-in-out;
+      transition: transform 0.5s ease, box-shadow 0.5s ease, background-position 3s ease;
+      animation: pulse 2s infinite ease-in-out, spinGradient 6s infinite linear, glow 3s infinite ease-in-out;
     }
     .profile-img:hover {
-      transform: scale(1.1);
+      transform: scale(1.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 40px rgba(41, 182, 246, 1);
+      background-position: 100%;
     }
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
+    }
+    @keyframes spinGradient {
+      0% { background-position: 0% 50%; }
+      100% { background-position: 100% 50%; }
+    }
+    @keyframes glow {
+      0% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 0 20px rgba(41, 182, 246, 0.7); }
+      50% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 0 40px rgba(41, 182, 246, 1); }
+      100% { box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2), 0 0 20px rgba(41, 182, 246, 0.7); }
     }
     .details {
       display: flex;
@@ -374,7 +387,7 @@
     <div class="parallax-bg"></div>
     <h1 data-aos="fade-down">Hey There, I’m Muhammad Ahmad</h1>
     <p data-aos="fade-up">Crafting <span class="typed-text"></span></p>
-    <img src="ahmad.jpg" alt="Your Profile Image" class="profile-img mx-auto" data-aos="zoom-in-up">
+    <img src="/images/ahmad.jpg" alt="Your Profile Image" class="profile-img mx-auto" data-aos="zoom-in-up">
     <div class="details">
       <div class="email">Molviahmad52@gmail.com</div>
       <div class="experience">2 Years Experience</div>
@@ -524,5 +537,3 @@
   </script>
 </body>
 </html>
-
-
